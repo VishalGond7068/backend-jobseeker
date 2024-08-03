@@ -13,8 +13,7 @@ import {errorMiddleware} from "./middlewares/error.js";
 const app = express();
 dotenv.config({path: "./config/config.env"});
 app.use(cors({
-    origin: [process.env.FRONTED_URL],
-    methods: ["GET", "POST", "DELETE", "PUT"],
+    origin: true,
     credentials: true,
     })
 );
