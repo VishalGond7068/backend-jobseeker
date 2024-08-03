@@ -9,7 +9,6 @@ import jobRouter from "./routes/jobRouter.js";
 import {dbConnection} from "./database/dbConnection.js";
 import {errorMiddleware} from "./middlewares/error.js";
 
-
 const app = express();
 dotenv.config({path: "./config/config.env"});
 app.use(cors({
@@ -33,8 +32,7 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/application", applicationRouter);
 app.use("/api/v1/job", jobRouter);
 
-mongoose.connect(process.env.MONGO_URI)
-// dbConnection();
+dbConnection();
 
 app.use(errorMiddleware);
 
